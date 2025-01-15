@@ -25,8 +25,7 @@ const VideoComponent: React.FC = () => {
         />
         <button
           type="submit"
-          className="bg-brand-green text-white font-semibold py-2 px-6 rounded hover:bg-brand-green-dark transition duration-300"
-        >
+          className="bg-transparent hover:bg-brand-green text-brand-green font-semibold hover:text-white py-2 px-4 border border-brand-green hover:border-transparent rounded"        >
           Get Demo
         </button>
       </form>

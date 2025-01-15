@@ -17,6 +17,15 @@ export default {
         "brand-gray": "var(--brand-gray)",
         "brand-darkest-gray": "var(--brand-darkest-gray)",
       },
+      backgroundImage: {
+        "dotted-grid": "radial-gradient(circle, lightgray 1px, transparent 1px)",
+      },
+      backgroundSize: {
+        "dotted-grid": "1.3em 1.3em"
+      },
+      backgroundPosition: {
+        "dotted-grid": "center",
+      },
     },
   },
   plugins: [],
