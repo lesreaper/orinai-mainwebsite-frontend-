@@ -5,12 +5,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand-light-gray: rgb(200, 200, 200);
+  --brand-green: rgb(15, 125, 135);
+  --brand-gray: rgb(128, 128, 128);
+  --brand-dark-gray: rgb(64, 64, 64);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --brand-light-gray: rgb(200, 200, 200);
+    --brand-green: rgb(15, 125, 135);
+    --brand-gray: rgb(128, 128, 128);
+    --brand-dark-gray: rgb(64, 64, 64);
   }
 }
 
