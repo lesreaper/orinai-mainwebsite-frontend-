@@ -1,17 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import React, { Fragment, useEffect, useState } from "react";
-import cx from "classnames";
+import React, { useEffect, useState } from "react";
 
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItems,
-  Transition,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "./Logo";
@@ -29,19 +24,6 @@ type MenuItem = {
   dropdownItems?: MenuItem[];
 };
 
-type MobileNavigationProps = {
-  title: string;
-  items: MenuItem[];
-};
-
-type CalloutProps = {
-  desktop: boolean;
-  handleClick: () => void;
-};
-
-type ChevronProps = {
-  open: boolean;
-};
 const menuItems: MenuItem[] = [
   {
     id: 1,
@@ -64,91 +46,6 @@ const menuItems: MenuItem[] = [
     href: "/company",
   },
 ];
-
-const MobileNavigation: React.FC<MobileNavigationProps> = ({
-  title,
-  items,
-}) => {
-  return (
-    <Disclosure>
-      {({ open }: { open: boolean }) => (
-        <>
-          <DisclosureButton
-            key={`mobileButton-${title}`}
-            className="text-brand-dark-gray hover:text-brand-green rounded-md text-lg font-bold x-spacing-8 px-3 py-2 flex flex-row items-center"
-          >
-            {title}
-            <Chevron open={open} />
-          </DisclosureButton>
-          <DisclosurePanel>
-            {items.map((item) => (
-              <div key={`subItem-${item.title}`}>
-                <Link
-                  aria-label={`Link to ${item.title}`}
-                  key={`subMenu-${item.title}`}
-                  href={item.href}
-                  className={
-                    "block px-4 py-2 text-sm text-brand-green hover:text-brand-green"
-                  }
-                >
-                  {item.title}
-                </Link>
-              </div>
-            ))}
-          </DisclosurePanel>
-        </>
-      )}
-    </Disclosure>
-  );
-};
-
-const Callout: React.FC<CalloutProps> = ({ desktop, handleClick }) => (
-  <div
-    className={cx("flex-row items-center", {
-      "hidden lg:flex": desktop,
-      "flex px-3": !desktop,
-    })}
-  >
-    <div className="flex flex-col ml-0 md:ml-2 leading-tight mx-4">
-      <button
-        className="bg-transparent hover:bg-brand-green text-brand-green font-semibold hover:text-white py-2 px-4 border border-brand-green hover:border-transparent rounded"
-        aria-label="Login to your account"
-        onClick={handleClick}
-      >
-        Get Demo
-      </button>
-    </div>
-  </div>
-);
-
-const Chevron: React.FC<ChevronProps> = ({ open }) => {
-  return (
-    <span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={3}
-        stroke="currentColor"
-        className="w-4 h-4 ml-2"
-      >
-        {open ? (
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m4.5 15.75 7.5-7.5 7.5 7.5"
-          />
-        ) : (
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-          />
-        )}
-      </svg>
-    </span>
-  );
-};
 
 export const Navigation: React.FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
