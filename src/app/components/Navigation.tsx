@@ -75,7 +75,9 @@ export const Navigation: React.FC = () => {
       {showAnnouncements && <AnnouncementsBar />}
       <Disclosure
         as="nav"
-        className={`relative top-0 left-0 w-full border-b z-10 transition-all duration-300 ${
+        className={`fixed ${
+          showAnnouncements ? "top-8" : "top-0"
+        } left-0 w-full border-b z-10 transition-all duration-300 ${
           hasScrolled ? "bg-white shadow-lg" : "bg-white"
         }`}
       >
