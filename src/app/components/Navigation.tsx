@@ -10,6 +10,7 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "./Logo";
+import AnnouncementsBar from "./AnnouncementsBar";
 
 function classNames(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(" ");
@@ -49,11 +50,19 @@ const menuItems: MenuItem[] = [
 
 export const Navigation: React.FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [showAnnouncements, setShowAnnouncements] = useState(true);
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
+    let lastScrollTop = 0;
+
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 0);
+      const currentScrollTop = window.scrollY;
+      setShowAnnouncements(
+        currentScrollTop <= lastScrollTop || currentScrollTop < 10
+      );
+      setHasScrolled(currentScrollTop > 0);
+      lastScrollTop = currentScrollTop;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -63,9 +72,10 @@ export const Navigation: React.FC = () => {
 
   return (
     <>
+      {showAnnouncements && <AnnouncementsBar />}
       <Disclosure
         as="nav"
-        className={`fixed top-0 left-0 w-full z-10 transition-all duration-300 ${
+        className={`relative top-0 left-0 w-full border-b z-10 transition-all duration-300 ${
           hasScrolled ? "bg-white shadow-lg" : "bg-white"
         }`}
       >

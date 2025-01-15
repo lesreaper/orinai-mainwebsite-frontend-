@@ -1,10 +1,12 @@
 "use client";
 
+import HomeHeader from "./partials/HomeHeader";
+
 
 export default function Home() {
   return (
     <>
-      This is test content
+      <HomeHeader />
     </>
   );
 }

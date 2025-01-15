@@ -9,6 +9,7 @@
   --brand-green: rgb(15, 125, 135);
   --brand-gray: rgb(128, 128, 128);
   --brand-dark-gray: rgb(64, 64, 64);
+  --brand-darkest-gray: rgb(32, 32, 32);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +20,7 @@
     --brand-green: rgb(15, 125, 135);
     --brand-gray: rgb(128, 128, 128);
     --brand-dark-gray: rgb(64, 64, 64);
+    --brand-darkest-gray: rgb(32, 32, 32);
   }
 }
 

@@ -15,6 +15,7 @@ export default {
         "brand-light-gray": "var(--brand-light-gray)",
         "brand-dark-gray": "var(--brand-dark-gray)",
         "brand-gray": "var(--brand-gray)",
+        "brand-darkest-gray": "var(--brand-darkest-gray)",
       },
     },
   },
